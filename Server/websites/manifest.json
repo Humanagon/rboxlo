@@ -1,0 +1,45 @@
+{
+    "eclipse": {
+        "entrypoint": "/websites/eclipse/server.js",
+        "domain": [
+            "INDEX",
+            "www",
+            "abuse",
+            "accountsettings",
+            "ads",
+            "api",
+            "assetdelivery",
+            "assetgame",
+            "auth",
+            "avatar",
+            "badges",
+            "billing",
+            "catalog",
+            "chat",
+            "clientsettings.api",
+            "data",
+            "develop",
+            "followings",
+            "friends",
+            "gameinternationalization",
+            "gamejoin",
+            "gamepersistence",
+            "games",
+            "groups",
+            "inventory",
+            "locale",
+            "notifications",
+            "points",
+            "presence",
+            "publish",
+            "textfilter",
+            "thumbnails",
+            "translations",
+            "versioncompatibility.api"
+        ]
+    },
+    "tootsie": {
+        "entrypoint": "/websites/tootsie/server.js",
+        "domain": "tootsie"
+    }
+}
