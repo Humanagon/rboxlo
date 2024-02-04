@@ -1,0 +1,50 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Rboxlo Server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/orcfoss/Rboxlo.git"
+  },
+  "author": "",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/orcfoss/Rboxlo/issues"
+  },
+  "homepage": "https://github.com/orcfoss/Rboxlo#readme",
+  "dependencies": {
+    "argon2": "^0.27.1",
+    "body-parser": "^1.19.0",
+    "bytes": "^3.1.0",
+    "ciphersweet-js": "^1.4.1",
+    "clone-deep": "^4.0.1",
+    "connect-multiparty": "^2.2.0",
+    "cookie-parser": "^1.4.5",
+    "cookie-session": "^1.4.0",
+    "cors": "^2.8.5",
+    "csurf": "^1.11.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "express-handlebars": "^5.2.1",
+    "express-minify-html-2": "^1.0.1",
+    "express-rate-limit": "^5.2.6",
+    "handlebars-layouts": "^3.1.4",
+    "http-build-query": "^0.7.0",
+    "mariadb": "^2.5.4",
+    "moment": "^2.29.1",
+    "node-fetch": "^2.6.1",
+    "safe-compare": "^1.1.4",
+    "sha256-file": "^1.0.0",
+    "uuid": "^8.3.2",
+    "validator": "^13.7.0",
+    "vhost": "^3.0.2",
+    "xss": "^1.0.9",
+    "zxcvbn": "^4.4.2"
+  }
+}
