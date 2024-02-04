@@ -1,0 +1,67 @@
+{{#> layout}}
+    {{#content "body"}}
+        <br>
+        <div class="card">
+            <div class="card-header">Create an account</div>
+            <div class="card-body">
+                <form id="register-form" method="post">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input id="username" name="username" aria-describedby="username-info" type="text" class="form-control{{#if form.username}} is-{{#if form.username.invalid}}in{{/if}}valid{{/if}}" required="required">
+                        {{#if form.username.invalid}}
+                            <div class="invalid-feedback">{{ form.username.message }}</div>
+                        {{else}}
+                            {{#unless form.username}}
+                                <small id="username-info" class="form-text text-muted">Please choose an appropriate username containing only alphanumeric characters.</small>
+                            {{/unless}}
+                        {{/if}}
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">E-Mail Address</label>
+                        <input id="email" name="email" aria-describedby="email-info" type="text" class="form-control{{#if form.email}} is-{{#if form.email.invalid}}in{{/if}}valid{{/if}}" required="required">
+                        {{#if form.email.invalid}}
+                            <div class="invalid-feedback">{{ form.email.message }}</div>
+                        {{else}}
+                            {{#unless form.email}}
+                                <small id="email-info" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            {{/unless}}
+                        {{/if}}
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input id="password1" name="password1" aria-describedby="password1-info" type="password" class="form-control{{#if form.password1}} is-{{#if form.password1.invalid}}in{{/if}}valid{{/if}}" required="required">
+                        {{#if form.password1.invalid}}
+                            <div class="invalid-feedback">{{ form.password1.message }}</div>
+                        {{else}}
+                            {{#unless form.password1}}
+                                <small id="password1-info" class="form-text text-muted">Passwords are hashed via <a href="https://en.wikipedia.org/wiki/Argon2" tabindex="-1">Argon2</a>.</small>
+                            {{/unless}}
+                        {{/if}}
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Confirm Password</label>
+                        <input id="password2" name="password2" aria-describedby="password2-info" type="password" class="form-control{{#if form.password2}} is-{{#if form.password2.invalid}}in{{/if}}valid{{/if}}" required="required">
+                        {{#if form.password2.invalid}}
+                            <div class="invalid-feedback">{{ form.password2.message }}</div>
+                        {{/if}}
+                    </div>
+                    <input type="hidden" name="_csrf" value="{{ session.csrf }}">
+                    {{#if rboxlo.captcha.enabled}}
+                        <div class="g-recaptcha" data-sitekey="{{ rboxlo.captcha.siteKey }}"></div>
+                        {{#if form.captcha}}
+                            <span class="error-text">{{ form.captcha.message }}</span><br>
+                        {{/if}}
+                    {{/if}}
+                    <button id="submit" type="submit" class="btn btn-primary btn-primary-rboxlo mt-3">Sign up</button>
+                </form>
+            </div>
+        </div>
+        <br>
+    {{/content}}
+
+    {{#content "scripts" mode="append"}}
+        {{#if rboxlo.captcha.enabled}}
+            <script type="text/javascript" src="https://www.google.com/recaptcha/api.js"></script>
+        {{/if}}
+    {{/content}}
+{{/layout}}

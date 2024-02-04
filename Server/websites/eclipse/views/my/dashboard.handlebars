@@ -1,0 +1,33 @@
+{{#> layout}}
+    {{#content "body"}}
+        <br><br>
+        <div class="row">
+            <div class="col-lg-3 mb-4">
+                <div class="card card-body">
+                    <div class="text-center">
+                        <h4 class="text-truncate">Hello, <b>{{ xss session.user.username }}</b>!</h4>
+                        <hr class="mt-0">
+                        <img src="{{ url "/data/thumbnail/user" }}?id={{ session.user.id }}" width="300" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-9">
+                <div class="card card-body mb-4">
+                    <div class="card-block">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="What are you up to?" disabled>
+                            <button class="btn btn-primary btn-primary-rboxlo px-3" type="button" id="share" disabled>Share</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card-body">
+                    <h4>My Feed</h4>
+                    <hr class="mt-0">
+                    <i>crickets...</i>
+                </div>
+            </div>
+        </div>
+    {{/content}}
+{{/layout}}

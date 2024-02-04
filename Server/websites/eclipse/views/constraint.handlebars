@@ -1,0 +1,40 @@
+{{#> layout}}
+    {{#content "body"}}
+		<div class="logo">
+			<img src="{{ resource "brand/large.png" }}">
+		</div>
+		
+		<div class="sign-in">
+			<h2>Sign In</h2>
+			<form action="/constraint" method="post">
+				<div class="field">
+					<label for="username">Username</label>
+					<img src="{{ resource "constraint/user.png" }}" class="icon">
+					<input name="username" type="text" required>
+				</div>
+				
+				<div class="field">
+					<label for="password">Password</label>
+					<img src="{{ resource "constraint/key.png" }}" class="icon">
+					<input name="password" type="text" required>
+				</div>
+
+				<div class="checkbox">
+					<input name="remember_me" type="checkbox" value="true">
+					<label for="remember_me">Remember me</label>
+				</div>
+				
+				<input type="hidden" value="{{ session.csrf }}" name="csrf">
+
+				<div class="submit">
+					<input type="submit" value="Submit">
+				</div>
+			</form>
+
+            {{#if response}}
+				<br>
+			    <div class="error-message">{{ response }}</div>
+            {{/if}}
+		</div>
+    {{/content}}
+{{/layout}}

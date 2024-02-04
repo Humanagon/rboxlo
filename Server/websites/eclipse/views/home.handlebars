@@ -1,0 +1,66 @@
+{{#> layout}}
+    {{#content "head" mode="append"}}
+        <meta property="og:title" content="{{ rboxlo.name }}">
+        <meta property="og:image" content="{{ resource "art/default.png" }}">
+        <meta property="og:image:type" content="image/png">
+        <meta property="og:description" content="{{ rboxlo.name }} is a recreation of a very popular online brick building game. Only {{ rboxlo.name }} allows you to relive childhood memories, create amazing games, and have fun all at the same time. Sign up now!">
+    {{/content}}
+    
+    {{#content "body"}}
+        <br><br>
+        <div class="row{{#unless rboxlo.privacy.registration }} justify-content-center{{/unless}}">
+            <div class="col-md-6 mb-5">
+                <h1 class="text-center"><img src="{{ resource "brand/large.png" }}" alt="{{ rboxlo.name }}" width="500" class="img-fluid"></h1><hr>
+                <p class="text-start">
+                    {{ rboxlo.name }} is a recreation of a very popular online brick building game. Only {{ rboxlo.name }} allows you to relive childhood memories, create amazing games, and have fun all at the same time.
+                </p>
+                <div class="embed-container"><iframe src="https://www.youtube.com/embed/LTnMKjXEnMY" frameborder="0" allowfullscreen></iframe></div>
+            </div>
+
+            {{#if rboxlo.privacy.registration}}
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">Create an account</div>
+                    <div class="card-body">
+                        <form id="register-form" method="post" action="{{ url "/account/register" }}">
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input id="username" name="username" aria-describedby="username-info" type="text" class="form-control" required="required">
+                                <small id="username-info" class="form-text text-muted">Please choose an appropriate username containing only alphanumeric characters.</small>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">E-Mail Address</label>
+                                <input id="email" name="email" aria-describedby="email-info" type="text" class="form-control" required="required">
+                                <small id="email-info" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input id="password1" name="password1" aria-describedby="password1-info" type="password" class="form-control" required="required">
+                                <small id="password1-info" class="form-text text-muted">Passwords are hashed via <a href="https://en.wikipedia.org/wiki/Argon2" tabindex="-1">Argon2</a>.</small>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Confirm Password</label>
+                                <input id="password2" name="password2" aria-describedby="password2-info" type="password" class="form-control" required="required">
+                            </div>
+                            <input type="hidden" name="_csrf" value="{{ session.csrf }}">
+                            {{#if rboxlo.captcha.enabled}}
+                                <div class="g-recaptcha" data-sitekey="{{ rboxlo.captcha.siteKey }}"></div>
+                            {{/if}}
+                            <button id="submit" type="submit" class="btn btn-primary btn-primary-rboxlo mt-3">Sign up</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            {{/if}}
+        </div>
+        <br><br>
+    {{/content}}
+
+    {{#content "scripts" mode="append"}}
+        {{#if rboxlo.captcha.enabled}}
+            <script type="text/javascript" src="https://www.google.com/recaptcha/api.js"></script>
+        {{/if}}
+    {{/content}}
+{{/layout}}
